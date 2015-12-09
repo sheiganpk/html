@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>请求</title>
+	<meta charset="utf-8">
+	<script>
+		window.onload = function(){
+			var url = "http://apis.haoservice.com/lifeservice/Joke/ContentList?pagesize=10&page=1&key=69d02ca2cd314ef29021789b7f3f06f3";
+			var request = new XMLHttpRequest();
+			request.open("GET", url);
+			request.onload = function(){
+				if (request.status == 200){
+					refreshData(request.responseText);
+				}
+				
+			}
+			request.send(null);
+		}
+
+		function refreshData(jsonStr){
+			var dic = JSON.parse(jsonStr);
+			var divF = document.getElementById("div");
+			var array = dic.result;
+			for (var i = 0; i < array.length; i++) {
+				var d = array[i];
+				var div = document.createElement("div");
+				div.setAttribute("class", "saleItem");
+				div.innerHTML = d.title;
+				divF.appendChild(div);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="div">
+	</div>
+</body>
+</html>
