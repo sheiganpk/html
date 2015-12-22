@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<title>Contact book</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="note.js"></script>
+	<style type="text/css">
+	textarea{
+		resize: none;
+	}
+	h3{
+		text-align: center;
+	}
+	.div{
+		width: 220px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 20px;
+	}
+	.tablediv{
+		width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 40px;
+	}
+	.button{
+		text-align: center;
+	}
+	</style>
+</head>
+<body>
+	<h3>人员录入表</h3>
+	<div>
+	<form>
+		<div class="div">
+			<label>姓名</label>
+			<input type="text" name="name"/>
+		</div>
+		<div class="div">
+			<label>性别</label>
+			<select name="sex">
+				<option>男</option>
+				<option>女</option>
+			</select>
+		</div>
+		<div class="div">
+			<label>爱好</label>
+			<input type="checkbox" name="interest" value="篮球" id="basketball"/>
+			<label for="basketball">篮球</label>
+			<input type="checkbox" name="interest" value="足球" id="football"/>
+			<label for="football">足球</label>
+			<input type="checkbox" name="interest" value="排球" id="volleyball"/>
+			<label for="volleyball">排球</label>
+		</div>
+		<div class="div">
+			<label>简介</label>
+			<textarea name="des" rows="3" cols="25"></textarea>
+		</div>
+		<div class="div button">
+			<button onclick="saveData()">提交</button>
+			<button>重置</button>
+		</div>
+	</form>
+	</div>
+
+	<div class="tablediv">
+		<table width="400px" border="1px" style="border-collapse:collapse;">
+			<caption>人员列表</caption>
+			<thead>
+				<tr><th>姓名</th><th>性别</th><th>爱好</th><th>简介</th></tr>
+			</thead>
+			<tbody id="tbody">
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
